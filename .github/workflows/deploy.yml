@@ -10,9 +10,20 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     defaults:
-      run:  
-        working-directory: src
+      name: Checkout repository
+      uses: actions/checkout@v2
 
+      name: Install dependencies and build
+        run: |
+          npm install
+          npm run build
+
+    name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-artifacts
+          path: dist
+      
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
