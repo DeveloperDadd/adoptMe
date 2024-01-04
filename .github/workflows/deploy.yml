@@ -42,8 +42,8 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: production-files
-          path: ../dist
-          
+          path: .github/workflows/dist
+
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
